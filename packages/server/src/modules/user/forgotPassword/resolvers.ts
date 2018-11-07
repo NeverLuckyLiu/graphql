@@ -7,14 +7,14 @@ import { createForgotPasswordLink } from "../../../utils/createForgotPasswordLin
 import { User } from "../../../entity/User";
 import { userNotFoundError, expiredKeyError } from "./errorMessages";
 import { forgotPasswordPrefix } from "../../../constants";
-import { registerPasswordValidation } from "../../../yupSchemas";
+import { passwordValidation } from "@abb/common";
 import { formatYupError } from "../../../utils/formatYupError";
 
 // 20 minutes
 // lock account
 
 const schema = yup.object().shape({
-  newPassword: registerPasswordValidation
+  newPassword: passwordValidation
 });
 
 export const resolvers: ResolverMap = {
